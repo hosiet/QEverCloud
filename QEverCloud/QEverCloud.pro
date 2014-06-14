@@ -2,7 +2,7 @@ TARGET = QEverCloud
 TEMPLATE = lib
 CONFIG += staticlib
 
-QT += network widgets webkitwidgets
+QT += network widgets webkit webkitwidgets
 
 CONFIG += silent
 CONFIG -= debug_and_release debug_and_release_target
@@ -26,7 +26,8 @@ HEADERS += \
     thumbnail.h \
     AsyncResult.h \
     Optional.h \
-    EverCloudException.h
+    EverCloudException.h \
+    qt4helper.h
 
 SOURCES += \
     exceptions.cpp \
