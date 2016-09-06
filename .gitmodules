@@ -1,0 +1,3 @@
+[submodule "QEverCloudGenerator"]
+	path = QEverCloudGenerator
+	url = https://github.com/hosiet/QEverCloudGenerator.git
