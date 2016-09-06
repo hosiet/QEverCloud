@@ -1,0 +1,33 @@
+--- a/QEverCloudGenerator/CMakeLists.txt
++++ b/QEverCloudGenerator/CMakeLists.txt
+@@ -7,10 +7,6 @@
+ include(QEverCloudSetupQt)
+ include(QEverCloudCompilerSettings)
+ 
+-add_subdirectory(lemon)
+-get_directory_property(lemon DIRECTORY lemon DEFINITION PROJECT_NAME)
+-get_directory_property(lempar DIRECTORY lemon DEFINITION lempar)
+-
+ add_subdirectory(thrift_parser)
+ get_directory_property(thrift_parser DIRECTORY thrift_parser DEFINITION PROJECT_NAME)
+ 
+--- a/QEverCloudGenerator/thrift_parser/CMakeLists.txt
++++ b/QEverCloudGenerator/thrift_parser/CMakeLists.txt
+@@ -13,12 +13,17 @@
+     main.cpp
+     Parser.cpp)
+ 
++set(lemon lemon)
++
+ # Pre build step: copy thrift_lemon.y to build dir, execute lemon on it and remove the output file
+ add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/thrift_lemon.out"
+                    COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_SOURCE_DIR}/thrift_lemon.y" "${CMAKE_CURRENT_BINARY_DIR}"
+                    COMMAND ${CMAKE_COMMAND} -E echo "thrift_lemon.y was copied to build dir"
+                    COMMAND ${lemon} "${CMAKE_CURRENT_BINARY_DIR}/thrift_lemon.y"
+                    COMMAND ${CMAKE_COMMAND} -E echo "lemon was executed on thrift_lemon.y"
++                   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/thrift_lemon.c ${CMAKE_CURRENT_SOURCE_DIR}/thrift_lemon.cpp
++                   COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_CURRENT_SOURCE_DIR}/thrift_lemon.c
++                   COMMAND ${CMAKE_COMMAND} -E echo "workaround for thrift_lemon.c executed"
+                    DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/thrift_lemon.y")
+ 
+ add_custom_target(pre_build
