@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
+
+# Multiarch support
+export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+# Set Qt5 builddir
+_QEVERCLOUD_QT5_BUILDDIR = build-qt5
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf $(_QEVERCLOUD_QT5_BUILDDIR)
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
+	dh_auto_configure --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR) -- -DUSE_QT5=1 -DUSE_QT5_WEBKIT=1 -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
+
+override_dh_auto_build:
+	dh_auto_build
+	dh_auto_build --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
+
+override_dh_auto_install:
+	dh_auto_install
+	dh_auto_install --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
+
+override_dh_install:
+	dh_install --list-missing
