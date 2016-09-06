@@ -1,3 +1,11 @@
+From: Boyuan Yang <073plan@gmail.com>
+Date: Tue, 06 Sep 2016 21:14:22 +0800
+Subject: generator: patch buildsystem to integrate with qevercloud.
+
+The buildsystem of QEverCloudGenerator is independent with the main
+project QEverCloud and uses a bundled lemon source. After the removal
+of lemon, the buildsystem needs patching to make everything works.
+---
 --- a/QEverCloudGenerator/CMakeLists.txt
 +++ b/QEverCloudGenerator/CMakeLists.txt
 @@ -7,10 +7,6 @@
