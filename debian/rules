@@ -3,10 +3,13 @@
 # Uncomment this to turn on verbose mode.
 # export DH_VERBOSE=1
 
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
 # Multiarch support
 export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-# Set Qt5 builddir
+# Set directory variables
 _QEVERCLOUD_QT5_BUILDDIR = build-qt5
 _QEVERCLOUD_GENERATOR_DIR = QEverCloudGenerator
 
