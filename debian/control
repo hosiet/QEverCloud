@@ -25,10 +25,12 @@ Depends:
  ${shlibs:Depends},
 Pre-Depends:
  ${misc:Pre-Depends},
-Description: Unofficial Evernote Cloud API for Qt4
- This library presents complete Evernote SDK for Qt4.
- All the functionality that is described on Evernote site
+Description: Unofficial Evernote Cloud API library for Qt4
+ QEverCloud presents a rather complete Evernote SDK for Qt.
+ Nearly all the functionality described on Evernote site
  is implemented and ready to use.
+ .
+ This library works with Qt4.
 
 Package: libqt5qevercloud3
 Section: libs
@@ -39,10 +41,12 @@ Depends:
  ${shlibs:Depends},
 Pre-Depends:
  ${misc:Pre-Depends},
-Description: Unofficial Evernote Cloud API for Qt5
- This library presents complete Evernote SDK for Qt5.
- All the functionality that is described on Evernote site
+Description: Unofficial Evernote Cloud API library for Qt5
+ QEverCloud presents a rather complete Evernote SDK for Qt.
+ Nearly all the functionality described on Evernote site
  is implemented and ready to use.
+ .
+ This library works with Qt5.
 
 Package: qt4qevercloud-dev
 Section: libdevel
@@ -51,9 +55,11 @@ Depends:
  libqt4qevercloud3 (= ${binary:Version}),
  ${misc:Depends},
 Description: Development files for libqt4qevercloud
- This library presents complete Evernote SDK for Qt4.
- All the functionality that is described on Evernote site
+ QEverCloud presents a rather complete Evernote SDK for Qt.
+ Nearly all the functionality described on Evernote site
  is implemented and ready to use.
+ .
+ This package provides development files for libqt4qevercloud.
 
 Package: qt5qevercloud-dev
 Section: libdevel
@@ -62,6 +68,8 @@ Depends:
  libqt5qevercloud3 (= ${binary:Version}),
  ${misc:Depends},
 Description: Development files for libqt5qevercloud
- This library presents complete Evernote SDK for Qt5.
- All the functionality that is described on Evernote site
+ QEverCloud presents a rather complete Evernote SDK for Qt.
+ Nearly all the functionality described on Evernote site
  is implemented and ready to use.
+ .
+ This package provides development files for libqt5qevercloud.

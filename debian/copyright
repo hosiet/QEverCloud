@@ -1,5 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: libqevercloud
+Upstream-Name: qevercloud
+Upstream-Contact: Dmitry Ivanov <dm.vl.ivanov@gmail.com>
 Source: https://github.com/d1vanov/QEverCloud
 Files-Excluded: QEverCloud/headers/generated/* QEverCloud/src/generated/* QEverCloudGenerator/lemon/*
 
