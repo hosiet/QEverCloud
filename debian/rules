@@ -8,15 +8,25 @@ export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 # Set Qt5 builddir
 _QEVERCLOUD_QT5_BUILDDIR = build-qt5
+_QEVERCLOUD_GENERATOR_DIR = QEverCloudGenerator
 
 %:
 	dh $@ --parallel
 
+custom_regenerate_source_code:
+	(cd $(_QEVERCLOUD_GENERATOR_DIR); cmake .;)
+	dh_auto_build --buildsystem=makefile -- -C $(_QEVERCLOUD_GENERATOR_DIR)
+	mkdir -p QEverCloud/src/generated
+	mkdir -p QEverCloud/headers/generated
+	mv -t QEverCloud/src/generated $(_QEVERCLOUD_GENERATOR_DIR)/generated/generated/*.cpp $(_QEVERCLOUD_GENERATOR_DIR)/generated/generated/types_impl.h
+	mv -t QEverCloud/headers/generated $(_QEVERCLOUD_GENERATOR_DIR)/generated/generated/*.h
+
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf $(_QEVERCLOUD_QT5_BUILDDIR)
+	(cd $(_QEVERCLOUD_GENERATOR_DIR); make clean || true;)
 
-override_dh_auto_configure:
+override_dh_auto_configure: custom_regenerate_source_code
 	dh_auto_configure -- -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
 	dh_auto_configure --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR) -- -DUSE_QT5=1 -DUSE_QT5_WEBKIT=1 -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
 
@@ -30,3 +40,5 @@ override_dh_auto_install:
 
 override_dh_install:
 	dh_install --list-missing
+
+.PHONY: custom_regenerate_source_code

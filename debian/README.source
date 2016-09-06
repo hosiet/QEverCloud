@@ -1,0 +1,19 @@
+QEverCloud sources for Debian
+-----------------------------
+
+As a cpp implementation of Evernote Cloud API, part of the source code of
+QEverCloud was inevitably generated from Thrift IDL files provided by
+Evernote. Those IDL files are an abstract layer of description about
+how to utilize Evernote Cloud API and were released under BSD-like license.
+The generated cpp files were included in the upstream source repository.
+
+To conform to Debian Policy, those source files are to be regenerated
+at build-time, which means the inclusion of upstream Evernote IDL files
+and a generator as part of QEverCloud source code. The added files are
+stored inside `QEverCloudGenerator/' directory.
+
+Since we need to regenerate some of the codes, Plain call of
+`cmake . && make' will not work;
+The detailed building instruction is written into `debian/rules' now.
+
+ -- Boyuan Yang <073plan@gmail.com>  Tue, 06 Sep 2016 18:24:33 +0800
