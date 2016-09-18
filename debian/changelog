@@ -1,5 +1,5 @@
 qevercloud (3.0.2+ds-1) unstable; urgency=medium
 
-  * Initial release. (Closes: 836857)
+  * Initial release. (Closes: #836857)
 
  -- Boyuan Yang <073plan@gmail.com>  Tue, 06 Sep 2016 21:21:15 +0800
