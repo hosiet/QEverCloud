@@ -46,9 +46,14 @@ override_dh_auto_configure: custom_regenerate_from_thrift
 override_dh_auto_build:
 	dh_auto_build
 	dh_auto_build --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
+	# Build documentation here for the -doc package
+	$(MAKE) -C build-qt5 doc
 
 override_dh_auto_install:
 	dh_auto_install
 	dh_auto_install --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
+
+override_dh_installdocs:
+	dh_installdocs -Xjquery.js --
 
 .PHONY: custom_regenerate_source_code
