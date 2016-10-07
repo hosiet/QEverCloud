@@ -30,13 +30,15 @@ custom_regenerate_from_thrift:
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf $(_QEVERCLOUD_QT5_BUILDDIR)
-	(cd $(_QEVERCLOUD_GENERATOR_DIR); make clean || true;)
+	(cd $(_QEVERCLOUD_GENERATOR_DIR); $(MAKE) clean || true;)
 
 override_dh_auto_configure: custom_regenerate_from_thrift
 	# -DCMAKE_INSTALL_LIBDIR is not handled by debhelper now,
 	# temporarily writing explicitly here to override. That line
 	# should be re-analyzed and removed after debhelper bug #833789
 	# get fixed.
+	#
+	# configure twice here, for Qt4 and Qt5.
 	dh_auto_configure -- \
 	    -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
 	dh_auto_configure --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR) -- \
@@ -44,16 +46,19 @@ override_dh_auto_configure: custom_regenerate_from_thrift
 	    -DCMAKE_INSTALL_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
 
 override_dh_auto_build:
+	# build twice here, for Qt4 and Qt5.
 	dh_auto_build
 	dh_auto_build --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
-	# Build documentation here for the -doc package
+	# build documentation here for the -doc package
 	$(MAKE) -C build-qt5 doc
 
 override_dh_auto_install:
+	# install twice here, for Qt4 and Qt5.
 	dh_auto_install
 	dh_auto_install --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
 
 override_dh_installdocs:
+	# jquery should be provided by libjs-jquery
 	dh_installdocs -Xjquery.js --
 
 .PHONY: custom_regenerate_source_code
