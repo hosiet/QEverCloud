@@ -1,0 +1,20 @@
+From: Boyuan Yang <073plan@gmail.com>
+Date: Fri, 07 Oct 2016 13:48:11 +0800
+Subject: Doxyfile.in: disable pdf documentation build.
+Forwarded: https://github.com/d1vanov/QEverCloud/issues/8
+
+Doxyfile PDF documentation would FTBFS.
+
+Disable it before upstream fix.
+---
+--- a/Doxyfile.in
++++ b/Doxyfile.in
+@@ -1585,7 +1585,7 @@
+ # If the GENERATE_LATEX tag is set to YES, doxygen will generate LaTeX output.
+ # The default value is: YES.
+ 
+-GENERATE_LATEX         = YES
++GENERATE_LATEX         = NO
+ 
+ # The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
+ # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
