@@ -4,6 +4,7 @@ Maintainer: Boyuan Yang <073plan@gmail.com>
 Build-Depends:
  cmake (>= 3.0.2),
  debhelper (>= 10),
+ texlive-font-utils,
  doxygen,
  lemon,
  libqt4-dev,
