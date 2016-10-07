@@ -7,3 +7,6 @@ Section: Programming/C++
 Format: HTML
 Index: /usr/share/doc/qevercloud-doc/index.html
 Files: /usr/share/doc/qevercloud-doc/*.html
+
+Format: PDF
+Index: /usr/share/doc/qevercloud-doc/latex/qevercloud.pdf
