@@ -27,7 +27,7 @@ Pre-Depends:
  ${misc:Pre-Depends},
 Description: Unofficial Evernote Cloud API library for Qt4
  QEverCloud presents a rather complete Evernote SDK for Qt.
- Nearly all the functionality described on Evernote site
+ Nearly all the functionality described on the Evernote site
  is implemented and ready to use.
  .
  This library works with Qt4.
@@ -42,7 +42,7 @@ Pre-Depends:
  ${misc:Pre-Depends},
 Description: Unofficial Evernote Cloud API library for Qt5
  QEverCloud presents a rather complete Evernote SDK for Qt.
- Nearly all the functionality described on Evernote site
+ Nearly all the functionality described on the Evernote site
  is implemented and ready to use.
  .
  This library works with Qt5.
@@ -55,10 +55,10 @@ Depends:
  ${misc:Depends},
 Description: QEverCloud library documentation
  QEverCloud presents a rather complete Evernote SDK for Qt.
- Nearly all the functionality described on Evernote site
+ Nearly all the functionality described on the Evernote site
  is implemented and ready to use.
  .
- This package provides the documentations for the library.
+ This package provides the documentation for the library.
 
 Package: qt4qevercloud-dev
 Section: libdevel
@@ -70,7 +70,7 @@ Suggests:
  qevercloud-doc,
 Description: Development files for libqt4qevercloud
  QEverCloud presents a rather complete Evernote SDK for Qt.
- Nearly all the functionality described on Evernote site
+ Nearly all the functionality described on the Evernote site
  is implemented and ready to use.
  .
  This package provides development files for libqt4qevercloud.
@@ -85,7 +85,7 @@ Suggests:
  qevercloud-doc,
 Description: Development files for libqt5qevercloud
  QEverCloud presents a rather complete Evernote SDK for Qt.
- Nearly all the functionality described on Evernote site
+ Nearly all the functionality described on the Evernote site
  is implemented and ready to use.
  .
  This package provides development files for libqt5qevercloud.
