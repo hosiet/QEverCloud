@@ -1,0 +1,22 @@
+From: Boyuan Yang <073plan@gmail.com>
+Date: Fri, 07 Oct 2016 12:12:22 +0800
+Subject: QeverCloud/CMakeLists.txt: patch library symlink chain.
+Forwarded: https://github.com/d1vanov/QEverCloud/issues/7
+
+Upstream build instructions made lib?qevercloud.so.3 a real
+library, not a symlink to foobar.so.3.0.0.
+
+Patching the build system to let the system conform to debian
+policy ch8.
+---
+--- a/QEverCloud/CMakeLists.txt
++++ b/QEverCloud/CMakeLists.txt
+@@ -89,6 +89,8 @@
+ endif()
+ 
+ set_target_properties(${LIBNAME} PROPERTIES
++  VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
++set_target_properties(${LIBNAME} PROPERTIES
+   SOVERSION "${PROJECT_VERSION_MAJOR}")
+ 
+ target_link_libraries(${LIBNAME} ${QT_LIBRARIES})
