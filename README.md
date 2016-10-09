@@ -3,6 +3,10 @@ QEverCloud
 
 **Unofficial Evernote Cloud API for Qt**
 
+Travis CI (Linux, OS X): [![Build Status](https://travis-ci.org/d1vanov/QEverCloud.svg?branch=master)](https://travis-ci.org/d1vanov/QEverCloud)
+
+AppVeyor CI (Windows): [![Build status](https://ci.appveyor.com/api/projects/status/75vtxm2o18u4atw0/branch/master?svg=true)](https://ci.appveyor.com/project/d1vanov/qevercloud/branch/master)
+
 ## What's this
 
 This library presents the complete Evernote SDK for Qt.
