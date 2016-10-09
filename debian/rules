@@ -52,9 +52,8 @@ override_dh_auto_build:
 	dh_auto_build --builddirectory=$(_QEVERCLOUD_QT5_BUILDDIR)
 	# build documentation here for the -doc package
 	$(MAKE) -C build-qt5 doc
-	# TODO: PDF build would FTBFS, awaiting upstream fix
-	#$(MAKE) -C build-qt5/doc/latex
-	#mv build-qt5/doc/latex/refman.pdf build-qt5/doc/latex/qevercloud.pdf
+	$(MAKE) -C build-qt5/doc/latex
+	mv build-qt5/doc/latex/refman.pdf build-qt5/doc/latex/qevercloud.pdf
 
 override_dh_auto_install:
 	# install twice here, for Qt4 and Qt5.

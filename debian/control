@@ -5,12 +5,19 @@ Build-Depends:
  cmake (>= 3.0.2),
  debhelper (>= 10),
  doxygen,
+ ghostscript,
  lemon,
  libqt4-dev,
  libqt5webkit5-dev,
  libqtwebkit-dev,
  qttools5-dev (>= 5.2.1),
  qttools5-dev-tools (>= 5.2.1),
+ texlive-binaries,
+ texlive-font-utils,
+ texlive-fonts-recommended,
+ texlive-latex-base,
+ texlive-latex-extra,
+ texlive-latex-recommended,
 Standards-Version: 3.9.8
 Section: libs
 Homepage: https://github.com/d1vanov/QEverCloud
