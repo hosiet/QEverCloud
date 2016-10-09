@@ -64,4 +64,9 @@ override_dh_installdocs:
 	# jquery should be provided by libjs-jquery
 	dh_installdocs -Xjquery.js --
 
+override_dh_compress:
+	# do not compress qevercloud.pdf, since few spaces can be squashed
+	# and .pdf.gz file is hard to be opened by common pdf reader
+	dh_compress -X.pdf --
+
 .PHONY: custom_regenerate_source_code
