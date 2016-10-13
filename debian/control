@@ -58,7 +58,6 @@ Package: qevercloud-doc
 Section: doc
 Architecture: all
 Depends:
- libjs-jquery,
  ${misc:Depends},
 Description: QEverCloud library documentation
  QEverCloud presents a rather complete Evernote SDK for Qt.
