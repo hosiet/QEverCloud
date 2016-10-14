@@ -1,5 +1,5 @@
-qevercloud-doc binary: embedded-javascript-library
 # Embedded jquery.js provided by doxygen is being discussed in BTS.
 # The doxygen packager prefers keeping the embedded jquery file
 # rather than using libjs-jquery.
 # Check /usr/share/doc/doxygen/README.jquery and #736360.
+qevercloud-doc binary: embedded-javascript-library
